@@ -1491,7 +1491,7 @@ const PanelMenuButton = new Lang.Class({
                 right: themeNode.get_padding(St.Side.RIGHT),
             };
             child.set_style("padding-left:"+menuPadding.top+"px; padding-right:"+menuPadding.top+"px");
-            this.topPane.set_style("padding-bottom:"+menuPadding.top+"px");
+            // this.topPane.set_style("padding-bottom:"+menuPadding.top+"px");
         }
 
         // Adjust certain menu objects for theme color, border, etc.
@@ -1531,7 +1531,7 @@ const PanelMenuButton = new Lang.Class({
     _calculateApplicationsBoxWidth: function() {
         // Calculate visible menu boxes and adjust application scroll box width accordingly
         let minWidth = this.topPane.width - (this._widthCategoriesBox + this._widthShortcutsBox + this.workspacesWrapper.width);
-        this.bottomPane.width = this.topPane.width;
+        // this.bottomPane.width = this.topPane.width;
 
         if (_DEBUG_) global.log("topPane width = "+this.topPane.width);
         if (_DEBUG_) global.log("shortcuts width = "+this.shortcutsScrollBox.width+" "+this._widthShortcutsBox);
@@ -1589,14 +1589,14 @@ const PanelMenuButton = new Lang.Class({
 
                     // calculate optimal App Grid button width
                     this._appGridButtonWidth = settings.get_int('apps-grid-label-width');
-                    let tempSize = settings.get_int('apps-grid-icon-size');
-                    if ( this._appGridButtonWidth < tempSize) {
-                      this._appGridButtonWidth = tempSize;
-                    }
-                    tempSize = themeNode.get_min_width();
-                    if ( this._appGridButtonWidth < tempSize) {
-                      this._appGridButtonWidth = tempSize;
-                    }
+                    // let tempSize = settings.get_int('apps-grid-icon-size');
+                    // if ( this._appGridButtonWidth < tempSize) {
+                    //   this._appGridButtonWidth = tempSize;
+                    // }
+                    // tempSize = themeNode.get_min_width();
+                    // if ( this._appGridButtonWidth < tempSize) {
+                    //   this._appGridButtonWidth = tempSize;
+                    // }
 
                     this._appGridButtonHeight = appGridButton.actor.height;
 
@@ -2567,7 +2567,7 @@ const PanelMenuButton = new Lang.Class({
         let middlePane = new St.BoxLayout({ style_class: 'gnomenu-menu-middle-pane' });
 
         // Bottom pane holds power group and selected app description (packed horizontally)
-        this.bottomPane = new St.BoxLayout({ style_class: 'gnomenu-menu-bottom-pane' });
+        // this.bottomPane = new St.BoxLayout({ style_class: 'gnomenu-menu-bottom-pane' });
 
         // categoriesWrapper bin wraps categories
         this.categoriesWrapper = new St.BoxLayout({ style_class: 'gnomenu-categories-workspaces-wrapper', vertical: false});
@@ -3301,9 +3301,9 @@ const PanelMenuButton = new Lang.Class({
         // ----------------------------------------------------------------------
 
         // topPane packs horizontally
-        this.topPane.add(this.powerGroupBox);
-        this.topPane.add(this.userGroupBox);
-        this.topPane.add(this.viewModeBoxWrapper, {x_align:St.Align.START, y_align:St.Align.MIDDLE});
+        // this.topPane.add(this.powerGroupBox);
+        // this.topPane.add(this.userGroupBox);
+        // this.topPane.add(this.viewModeBoxWrapper, {x_align:St.Align.START, y_align:St.Align.MIDDLE});
         this.topPane.add(this.searchBox, {expand: true, x_align:St.Align.END, y_align:St.Align.MIDDLE});
 
         this.categoriesWrapper.add(this.categoriesBox, {x_fill:false, y_fill: false, x_align: St.Align.START, y_align: St.Align.START});
@@ -3323,11 +3323,11 @@ const PanelMenuButton = new Lang.Class({
         middlePane.add(this.workspacesScrollBox, {x_fill:false, y_fill: false, x_align: St.Align.START, y_align: St.Align.START});
 
         // bottomPane packs horizontally
-        let bottomPaneSpacer1 = new St.Label({text: '', style_class: 'gnomenu-spacer'});
-        this.bottomPane.add(this._dummyButton);
-        this.bottomPane.add(this._dummyButton2);
-        this.bottomPane.add(bottomPaneSpacer1, {expand: true, x_align:St.Align.MIDDLE, y_align:St.Align.MIDDLE});
-        this.bottomPane.add(this.selectedAppBox, {expand: false, x_align:St.Align.END, y_align:St.Align.MIDDLE});
+        // let bottomPaneSpacer1 = new St.Label({text: '', style_class: 'gnomenu-spacer'});
+        // this.bottomPane.add(this._dummyButton);
+        // this.bottomPane.add(this._dummyButton2);
+        // this.bottomPane.add(bottomPaneSpacer1, {expand: true, x_align:St.Align.MIDDLE, y_align:St.Align.MIDDLE});
+        // this.bottomPane.add(this.selectedAppBox, {expand: false, x_align:St.Align.END, y_align:St.Align.MIDDLE});
 
         let bShowPreferences = true;
         try {
@@ -3345,14 +3345,14 @@ const PanelMenuButton = new Lang.Class({
             global.log(err.message.toString());
         }
         if (bShowPreferences) {
-            this.topPane.add(this.preferencesGroupBox, {x_fill:false, y_fill: false, x_align:St.Align.END, y_align:St.Align.MIDDLE});
+            // this.topPane.add(this.preferencesGroupBox, {x_fill:false, y_fill: false, x_align:St.Align.END, y_align:St.Align.MIDDLE});
         }
 
 
         // mainbox packs vertically
         this.mainBox.add_actor(this.topPane);
         this.mainBox.add_actor(middlePane);
-        this.mainBox.add_actor(this.bottomPane);
+        // this.mainBox.add_actor(this.bottomPane);
 
         // add all to section
         section.actor.add_actor(this.mainBox);
